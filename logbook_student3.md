@@ -139,3 +139,11 @@
   * Conducted API schema conformance inspections on GET summary outputs.
 * **Key Decisions**:
   * Logged explicit verification targets to confirm date filters strictly drop records falling outside range markers.
+
+### Day 19: 22 June 2026
+* **Tasks Undertaken**:
+  * Executed the 8 E2E integration test scenarios mapped out on Day 15, documenting steps, data vectors, and results in `integration_test_report.md`.
+  * Verified the 3 ROI core logic edge cases (₹1 limit, ₹50M limit, and zero-budget protection checks).
+  * Compiled final test tracking scores displaying 100% pass rates.
+* **Key Decisions**:
+  * Added detailed API error status evaluations to verify that bad data triggers the correct HTTP status error codes automatically.
