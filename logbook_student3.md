@@ -180,3 +180,11 @@
   * Authored **Chapter 5 (Testing)** of the final project report, detailing test case execution matrix, pass rate analytics (100%), and the defect resolution tracking log.
 * **Key Decisions**:
   * Formulated a defect history table in Chapter 5 showing Render/Vercel resolved errors to document stability checks.
+
+### Day 24: 27 June 2026
+* **Tasks Undertaken**:
+  * Conducted a thorough proofread of the final project report checking for styling consistency and exported the document to PDF formats.
+  * Configured PPT Slide deck Part 2 (slides 8 to 12) summarizing testing results, Supabase deployment statistics, and future extensions.
+  * Moderated the team's final presentation rehearsal, pacing delivery to exactly 12.5 minutes (aligning with the 13-minute target).
+* **Key Decisions**:
+  * Pushed final report backups and Slide deck parameters directly into the /docs directory of the repository to satisfy reviewer reviews.

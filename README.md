@@ -10,6 +10,8 @@
 ## Deployed Application Links
 * **Live Frontend Interface (Vercel)**: [https://oxygen-sports-tracker.vercel.app](https://oxygen-sports-tracker.vercel.app)
 * **Live Backend API (Render)**: [https://oxygen-sports-tracker-backend.onrender.com/health](https://oxygen-sports-tracker-backend.onrender.com/health)
+* **YouTube Walkthrough Video (Unlisted)**: [https://youtu.be/dummy-walkthrough-id](https://youtu.be/dummy-walkthrough-id)
+* **Google Drive Demo Video**: [https://drive.google.com/drive/folders/dummy-gdrive-id](https://drive.google.com/drive/folders/dummy-gdrive-id)
 * **Deployment Reference Guide**: See [docs/deployment_guide.md](file:///C:/Users/Shiva/.gemini/antigravity/scratch/oxygen-sports-tracker/docs/deployment_guide.md) for variable guidelines.
 
 ---
