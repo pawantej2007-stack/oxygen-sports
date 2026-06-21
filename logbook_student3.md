@@ -130,3 +130,12 @@
   * Compiled the review committee's feedback and created [review2_feedback.md](file:///C:/Users/Shiva/.gemini/antigravity/scratch/oxygen-sports-tracker/docs/review2_feedback.md).
 * **Key Decisions**:
   * Added edge-case zero-item validations to the Postman collections list to satisfy evaluators.
+
+### Day 18: 20 June 2026
+* **Tasks Undertaken**:
+  * Executed report testing scenarios validating summary aggregations against 3 distinct date-range parameters.
+  * Verified SVG dynamic line/bar chart rendering behaviors against empty databases (0 logs) and scaled datasets (50+ entries).
+  * Documented 5 new test cases (TC-REP-001 to TC-REP-005) inside [test_tracker.md](file:///C:/Users/Shiva/.gemini/antigravity/scratch/oxygen-sports-tracker/docs/test_tracker.md).
+  * Conducted API schema conformance inspections on GET summary outputs.
+* **Key Decisions**:
+  * Logged explicit verification targets to confirm date filters strictly drop records falling outside range markers.
