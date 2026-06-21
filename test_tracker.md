@@ -1,4 +1,4 @@
-# System Test Execution Tracker (Updated Day 18)
+# System Test Execution Tracker (Updated Day 20)
 
 This tracker documents testing iterations, statuses, and validation dates.
 
@@ -44,3 +44,4 @@ This tracker documents testing iterations, statuses, and validation dates.
 | `TC-REP-003`  | Reports UI       | Reports Chart: Rendering with empty database | Charts render empty indicators without crashes | SVGs render zero columns and blank line trends | **PASS** | 20 June 2026 |
 | `TC-REP-004`  | Reports UI       | Reports Chart: Rendering with 50+ records scale | Charts scale and render responsive paths | SVGs display correct scaling ratios for large spends | **PASS** | 20 June 2026 |
 | `TC-REP-005`  | Reports Export   | Reports Export: CSV export formatting API | HTTP 200 returning valid comma-separated text attachment | CSV downloads correctly with correct quotes escaping | **PASS** | 20 June 2026 |
+| `TC-VAL-015`  | Full Integration | 15-Record consistency and detail view verification | 15 seeded logs verified across dashboard, details, and print outputs | Verified all 15 entries displaying matched fields and history trails | **PASS** | 23 June 2026 |
