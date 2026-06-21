@@ -164,3 +164,12 @@
   * Calculated final test tracker results with 53 test cases yielding a 100% pass rate.
 * **Key Decisions**:
   * Created test case validations targeting malformed JSON requests and verified that the server returns clear, user-friendly 400 error payloads without halting the process.
+
+### Day 22: 25 June 2026
+* **Tasks Undertaken**:
+  * Tested complete E2E workflow on the newly deployed Vercel and Render URL connections.
+  * Verified responsive layouts and components on a real mobile device viewport.
+  * Drafted a deployment reference guide mapping Supabase/Railway configurations and environment tables to [deployment_guide.md](file:///C:/Users/Shiva/.gemini/antigravity/scratch/oxygen-sports-tracker/docs/deployment_guide.md).
+  * Appended live server and web hosting URL details to the main [README.md](file:///C:/Users/Shiva/.gemini/antigravity/scratch/oxygen-sports-tracker/README.md).
+* **Key Decisions**:
+  * Added dynamic SSL database connection options to PG Pool configurations to support strict Supabase server certificate rules automatically without manual local override changes.
