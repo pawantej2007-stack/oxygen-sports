@@ -155,3 +155,12 @@
   * Documented 15-record test case `TC-VAL-015` inside [test_tracker.md](file:///C:/Users/Shiva/.gemini/antigravity/scratch/oxygen-sports-tracker/docs/test_tracker.md).
 * **Key Decisions**:
   * Verified that data fields parsed from SQLite serializations matched expected arrays perfectly with no inconsistent data types between dashboard listings and full detail views.
+
+### Day 21: 24 June 2026
+* **Tasks Undertaken**:
+  * Tested the fully integrated tracker app using a clean empty database from scratch, verifying zero-crash startup behaviors.
+  * Verified input sanitisation by submitting HTML scripts and special character inputs, confirming that they are stripped properly.
+  * Audited loading spinners and empty state rendering across dashboard, detail history, and reports screens.
+  * Calculated final test tracker results with 53 test cases yielding a 100% pass rate.
+* **Key Decisions**:
+  * Created test case validations targeting malformed JSON requests and verified that the server returns clear, user-friendly 400 error payloads without halting the process.

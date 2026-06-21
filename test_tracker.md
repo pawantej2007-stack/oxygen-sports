@@ -1,6 +1,12 @@
-# System Test Execution Tracker (Updated Day 20)
+# System Test Execution Tracker (Updated Day 21)
 
 This tracker documents testing iterations, statuses, and validation dates.
+
+## Summary (Day 21)
+- **Total Test Cases**: 53
+- **Passed**: 53
+- **Failed**: 0
+- **Pass Rate**: 100%
 
 | Test ID | Module / Component | Description | Expected Result | Actual Result | Status | Execution Date |
 | :--- | :--- | :--- | :--- | :--- | :---: | :--- |
@@ -45,3 +51,10 @@ This tracker documents testing iterations, statuses, and validation dates.
 | `TC-REP-004`  | Reports UI       | Reports Chart: Rendering with 50+ records scale | Charts scale and render responsive paths | SVGs display correct scaling ratios for large spends | **PASS** | 20 June 2026 |
 | `TC-REP-005`  | Reports Export   | Reports Export: CSV export formatting API | HTTP 200 returning valid comma-separated text attachment | CSV downloads correctly with correct quotes escaping | **PASS** | 20 June 2026 |
 | `TC-VAL-015`  | Full Integration | 15-Record consistency and detail view verification | 15 seeded logs verified across dashboard, details, and print outputs | Verified all 15 entries displaying matched fields and history trails | **PASS** | 23 June 2026 |
+| `TC-VAL-016`  | Input Sanitisation | POST payload containing HTML tags (e.g. `<b>School Name</b>`) | HTML tags are stripped from `event_name` before saving | Saved as `School Name` | **PASS** | 24 June 2026 |
+| `TC-VAL-017`  | Input Sanitisation | POST payload containing special chars (e.g. `Event ; Name`) | Special characters like `;` are stripped | Saved as `Event  Name` | **PASS** | 24 June 2026 |
+| `TC-VAL-018`  | Error Handling | Send malformed JSON payload to server | Server responds with standard error envelope `400` | Responds HTTP 400 with "Malformed JSON payload: Parsing failed." | **PASS** | 24 June 2026 |
+| `TC-VAL-019`  | Empty States | Filter list screen so zero matching records returned | UI displays custom glassmorphic empty state element | Shows "No Sponsorship Records Found" empty state | **PASS** | 24 June 2026 |
+| `TC-VAL-020`  | Responsive Layout | View application at 375px, 768px, 1280px viewports | Layout wraps, grids stack, nav is readable | Verified responsive grid stacking and button sizes | **PASS** | 24 June 2026 |
+| `TC-VAL-021`  | Clean DB Setup | Spin up server with clean empty SQLite DB | Database tables successfully auto-created; site runs cleanly | Database initialized on startup; dashboard displays empty state | **PASS** | 24 June 2026 |
+
