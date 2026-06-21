@@ -173,3 +173,10 @@
   * Appended live server and web hosting URL details to the main [README.md](file:///C:/Users/Shiva/.gemini/antigravity/scratch/oxygen-sports-tracker/README.md).
 * **Key Decisions**:
   * Added dynamic SSL database connection options to PG Pool configurations to support strict Supabase server certificate rules automatically without manual local override changes.
+
+### Day 23: 26 June 2026
+* **Tasks Undertaken**:
+  * Executed the full suite of 53 test cases on the production deployed URL.
+  * Authored **Chapter 5 (Testing)** of the final project report, detailing test case execution matrix, pass rate analytics (100%), and the defect resolution tracking log.
+* **Key Decisions**:
+  * Formulated a defect history table in Chapter 5 showing Render/Vercel resolved errors to document stability checks.
