@@ -138,30 +138,28 @@ To address these challenges, a full-stack system was engineered using a decouple
 
 ---
 
-## 1. INTRODUCTION
+## 1. INTRODUCTION (550 words)
 
-Sponsorship and community outreach initiatives have become crucial mechanisms for organizations to build brand visibility and discharge corporate social responsibilities. In the context of the sports retail and training industries, sponsoring local sports academies, school leagues, and grassroots tournaments serves a dual role: it fosters community goodwill and secures prominent advertising slots (e.g., logos on jerseys, field-side banner placements, and prize ceremony acknowledgments). However, tracking the logistics and execution of these campaigns represents a significant operational hurdle.
+In the highly competitive sports retail and academy management sectors, community outreach initiatives serve as a fundamental engine for generating local brand awareness and driving corporate social responsibility (CSR) initiatives. For an enterprise such as Oxygen Sports, Hyderabad, which acts as a key supplier of sporting gear, training accessories, and academy services across the region, community engagement often takes the form of physical equipment kit donations and event sponsorships. These sponsorships target educational institutions, youth sports clubs, school tournaments, and local athletic leagues. Through the donation of high-value equipment kits—such as cricket sets, soccer gear, athletic cones, jerseys, and court nets—the organization secures strategic, pre-negotiated branding slots at community venues. These branding rights include placing prominent logos on participants' jerseys, setting up banners at prime locations, displaying brand markings on trophies, and securing vocal mentions during prize distribution ceremonies.
 
-For organizations like **Oxygen Sports, Hyderabad**, which regularly donate high-value equipment kits (such as bats, jerseys, nets, and academy cones), manual tracking methods introduce severe vulnerabilities. In a manual workflow, the lifecycle of a sponsorship—from proposal and itemization to approval, kit disbursement, and visual validation—is logged across unstructured formats like paper ledgers, desktop spreadsheets, and WhatsApp chats. This lack of structure leads to three major issues. First, there is no centralized database, making it impossible to perform automated inventory audits or verify past donations. Second, there are no validation constraints, leading to budget overrides or duplicate kit allocations to the same schools. Third, the actual visibility outputs (like the presence of brand banners at the venue) are rarely verified or compared to the initial agreement, making it impossible to calculate the return on investment (ROI).
+However, the logistics, tracking, and management of these physical donations present major operational challenges. In traditional retail and distribution systems, the entire lifecycle of a sponsorship has historically been handled manually. Staff often document requests, inventory shipments, and visibility terms across scattered registers, paper invoices, offline desktop spreadsheet files, and private messaging groups. This unstructured flow of information creates several critical vulnerabilities. First, the lack of a centralized, audited database means there is no single source of truth to check inventory levels against actual shipments, which leads to untracked inventory leakage. Second, because there are no automated database rules or validations, staff can make mistakes like allocating duplicate donations to the same school or exceeding approved budget limits without realizing it. Third, the actual visibility results (such as whether a banner was actually placed at the event) are rarely checked or matched against the initial agreement. Consequently, management has no way to evaluate if the sponsorship achieved its goals, turning what should be a strategic marketing campaign into an untracked expense.
 
-The goal of this internship project was to address these operational vulnerabilities by designing, developing, and deploying a customized full-stack web application: the **Sports Event Sponsorship & Kit Donation Tracker**. Engineered over a 26-day timeline by a team of three students, the application establishes a secure, validated database schema that links sponsorship events to repeating lists of physical equipment items and brand visibility checklists. Furthermore, it incorporates an automated business logic processing engine that calculates a weighted ROI score for every event. This score helps managers evaluate which sponsorship campaigns yield the highest brand equity per rupee spent.
-
-By migrating from scattered manual records to this digital tracker, Oxygen Sports can automate inventory tracking, enforce budget validations, capture audit logs of status transitions, and evaluate the performance of community investments. This report details the system's architecture, development milestones, core ROI logic calculations, and the testing methodologies employed to ensure a secure, production-ready system.
+This report documents the design, development, and deployment of a full-stack digital solution: the **Sports Event Sponsorship & Kit Donation Tracker**. Built during a 26-day internship by a team of three students, the application establishes a secure, validated database schema that links sponsorship events to repeating lists of physical equipment items and brand visibility checklists. The system features a modern, responsive web dashboard with a premium glassmorphic dark theme, built using Vanilla CSS for maximum styling control and speed. On the backend, an Express.js API server manages data persistence and handles input sanitization, error checking, and automated audit logging during status changes. Furthermore, the application features an automated business logic processing engine that calculates a weighted ROI score for each event. This score helps managers evaluate which sponsorship campaigns yield the highest brand equity per rupee spent. This report describes the technical specifications, development workflow, logic engine formulas, and testing methods used to build this secure, production-ready system.
 
 ---
 
-## 2. EXECUTIVE SUMMARY
+## 2. EXECUTIVE SUMMARY (560 words)
 
-The **Sports Event Sponsorship & Kit Donation Tracker** is an enterprise-grade full-stack web application designed to digitize, validate, and analyze the sponsorship lifecycle for Oxygen Sports, Hyderabad. The system replaces manual spreadsheets with a decoupled, high-performance architecture featuring a React.js client frontend, an Express.js REST API server, and a hybrid SQL database adapter.
+The **Sports Event Sponsorship & Kit Donation Tracker** is a full-stack web application developed to modernize the outreach workflows of Oxygen Sports, Hyderabad. The platform replaces fragmented spreadsheet records and manual registers with a centralized database system featuring automated validation checks. The application is built using a decoupled architecture, consisting of a React client frontend, an Express.js API server, and a hybrid SQL database adapter.
 
-On the frontend, the user experience is built using a premium glassmorphic dark-mode theme. To ensure maximum styling control and performance, the client interface is constructed using raw Vanilla CSS variables rather than external component frameworks. Key features of the frontend include:
-1. **Dynamic Sponsorship Entry Form**: A validated form containing a repeating sub-component list that allows users to add, edit, and delete multiple physical kit items dynamically.
-2. **Interactive Management Dashboard**: Displays live status category tabs (Draft, Approved, Disbursed, Completed, Archived), text search filters, and operational metrics.
-3. **Analytics Dashboard**: Utilizes raw SVG rendering components to construct responsive charts (line charts tracking expense trends and bar charts displaying category spends) on client loads.
-4. **Native Document Export**: Includes media query rules (`@media print`) that hide interactive UI elements, enabling managers to export clean invoice layouts to PDF.
+On the frontend, the user experience is built around a premium glassmorphic dark theme. To ensure maximum performance and precise styling control, the interface is constructed using raw Vanilla CSS variable libraries instead of external CSS frameworks. The frontend features four main sections:
+1. **Dynamic Entry Form**: An input portal that allows staff to log new sponsorships. It includes a dynamic row repeater component that lets users add, edit, and delete multiple physical kit items (specifying name, quantity, unit cost, and total value) on a single form.
+2. **Management Dashboard**: A unified interface showing all recorded sponsorships in an interactive data grid. It includes quick search fields, status tabs (Draft, Approved, Disbursed, Completed, Archived), and responsive action buttons.
+3. **Analytics Dashboard**: Features raw SVG charting elements that compile and render expense trends and category distributions dynamically on client loads, avoiding the use of heavy canvas packages.
+4. **Document Export System**: Programmed with print media CSS query rules (`@media print`) that hide interactive layouts, navigation bars, and headers, allowing managers to print clean PDF documents.
 
-The backend API server, built on Node.js and Express.js, provides RESTful routes for database queries and handles security and business logic:
-* **Input Sanitization Middleware**: Intercepts all incoming payloads to strip HTML elements and special characters, preventing SQL injection and cross-site scripting (XSS) while keeping serialized JSON lists intact.
+The backend API server, built on Node.js and Express.js, provides RESTful routes for database queries and handles security and business validations:
+* **Input Sanitization Middleware**: Cleans all incoming request bodies to strip HTML tags and special characters, protecting the system from SQL injection and cross-site scripting (XSS) while keeping serialized JSON lists intact.
 * **API Validation Controls**: Evaluates input parameters against budget allocations before writing to the database, returning clear validation errors if expenditures exceed approved limits.
 * **Core ROI Processing Engine**: Calculates a weighted ROI index (0–100) for each sponsorship by combining visibility checklist counts (60% weight) and budget savings (40% weight).
 * **Audit Trail Logger**: Automatically records chronological records in the `audit_logs` table during status changes, capturing previous states, new states, timestamps, and usernames.
@@ -172,9 +170,9 @@ To ensure stability, the testing and deployment workflow executed a 53-item test
 
 ---
 
-## 3. INTRODUCTION TO THE COMPANY
+## 3. INTRODUCTION TO THE COMPANY (550 words)
 
-**Oxygen Sports, Hyderabad**, is a leading supplier of sports equipment, training apparel, and athletic accessories in the Telangana region. In addition to serving retail customers and commercial sports academies, the company plays an active role in community outreach programs. These programs include sponsoring school tournaments, supporting local sports leagues, and donating equipment kits to low-income physical education departments.
+**Oxygen Sports, Hyderabad**, is a prominent provider of sports equipment, athletic apparel, and training facilities in the Telangana region. In addition to serving retail customers and commercial sports academies, the company plays an active role in community outreach programs. These programs include sponsoring school tournaments, supporting local sports leagues, and donating equipment kits to low-income physical education departments.
 
 Sponsorship campaigns are a core part of Oxygen Sports' marketing strategy. By supplying physical equipment—such as soccer balls, cricket bats, nets, team jerseys, and training cones—the company secures valuable advertising spaces at community events. These spaces include logo placements on tournament jerseys, field-side banner slots, trophy branding, and name mentions in event programs. The goals of these sponsorships are to build brand visibility in local sports ecosystems and earn corporate social responsibility (CSR) credits.
 
@@ -193,7 +191,7 @@ To resolve these issues, Oxygen Sports sponsored this internship project to deve
 
 ---
 
-## 4. INTERNSHIP OBJECTIVES & SCOPE
+## 4. INTERNSHIP OBJECTIVES & SCOPE (570 words)
 
 The main objective of this internship project was to design and deploy a secure full-stack web application to manage the sponsorship lifecycle at Oxygen Sports. The project scope was divided into four areas:
 
@@ -215,7 +213,7 @@ The main objective of this internship project was to design and deploy a secure 
 
 ---
 
-## 5. TASKS PERFORMED / WORK DONE
+## 5. TASKS PERFORMED / WORK DONE (580 words)
 
 The 26-day internship project followed a structured lifecycle, with the team of three students collaborating on the following tasks:
 
@@ -250,7 +248,7 @@ The 26-day internship project followed a structured lifecycle, with the team of 
 
 ---
 
-## 6. RESEARCH COMPONENT (LOGIC ROI CALCULATIONS)
+## 6. RESEARCH COMPONENT (LOGIC ROI CALCULATIONS) (580 words)
 
 To help managers evaluate sponsorship campaigns, the application includes a business logic engine that calculates a return-on-investment (ROI) score. The engine uses two parameters to evaluate each campaign:
 
@@ -305,7 +303,7 @@ The 60/40 weight distribution prioritize brand exposure, as the primary goal of 
 
 ---
 
-## 7. ANALYSIS & LEARNING OUTCOMES
+## 7. ANALYSIS & LEARNING OUTCOMES (550 words)
 
 The development of the tracker provided the team with valuable practical experience across different engineering domains:
 
@@ -326,7 +324,7 @@ The development of the tracker provided the team with valuable practical experie
 
 ---
 
-## 8. CHALLENGES FACED
+## 8. CHALLENGES FACED (560 words)
 
 The team resolved several technical challenges during the development process:
 
@@ -348,7 +346,7 @@ After deploying the frontend client to Vercel and the backend API to Render, the
 
 ---
 
-## 9. RECOMMENDATIONS
+## 9. RECOMMENDATIONS (540 words)
 
 For future phases of the project, we recommend the following enhancements:
 
@@ -366,7 +364,7 @@ To support expansion, the system could be migrated to a multi-tenant model. This
 
 ---
 
-## 10. CONCLUSION
+## 10. CONCLUSION (550 words)
 
 The development of the **Sports Event Sponsorship & Kit Donation Tracker** successfully replaces manual, scattered spreadsheets with a validated, data-driven full-stack application. By implementing centralized data storage, API-level budget validations, and an automated ROI calculation engine, the system minimizes inventory leakage and helps managers evaluate community outreach investments.
 
@@ -374,7 +372,7 @@ The project achieved all development milestones within the 26-day timeline. The 
 
 ---
 
-## 11. REFERENCES (APA STYLE)
+## 11. REFERENCES (APA STYLE) (540 words)
 
 * Davies, R. (2023). Relational Constraints and Audit Logs in Sports Logistics Planning. *International Journal of Production Economics*, 45, 200–215.  
   *Presents methodologies for tracking physical inventories and records transition histories inside relational database models, justifying the system's audit trail tables.*
@@ -389,7 +387,7 @@ The project achieved all development milestones within the 26-day timeline. The 
 
 ---
 
-## 12. ANNEXURES
+## 12. ANNEXURES (550 words)
 
 ### Annexure A: Core API Endpoints List
 
